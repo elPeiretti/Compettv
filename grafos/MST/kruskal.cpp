@@ -1,8 +1,8 @@
-vector<long long>padre, peso;
 
-bool comp(pair<int,par> a, pair<int,par> b){
-	return a.first<b.first;
-}
+int v,e; //cant de nodos y aristas
+vector<pair<int,pair<int,int>>> edges; //hay que sortear el vector en funcion del peso antes de llamar a kruskal()
+vector<pair<int,par>> MST
+vector<long long>padre, peso;
 
 //                   UNION - FIND
 // ===================================================
@@ -36,7 +36,7 @@ bool formaCiclo(pair<int,par> e){
 	
 }
 
-ll kruskal(int v, int e, vector<pair<int,pair<int,int>>> edges, vector<pair<int,par>> &MST){
+ll kruskal(int v, int e){
 	
 	ll ans=0;
 	
