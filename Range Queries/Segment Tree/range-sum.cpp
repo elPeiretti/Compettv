@@ -34,7 +34,7 @@ void update(int node, int izq, int der, int pos, int val) { // O(log N)
 	}
 }
 
-int sum(int node, int izq, int der, int l, int r){
+int sum(int node, int izq, int der, int l, int r){ // O(log N)
 	
 	if (r < izq or l > der) //fuera de rango
 		return 0;
