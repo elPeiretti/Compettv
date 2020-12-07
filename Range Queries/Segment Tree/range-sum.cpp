@@ -56,6 +56,7 @@ int main(int argc, char *argv[]) {
 	
 	cin>>n;
 	tree.resize(2*n,0);
+	arr.resize(n,0);
 	build(1,0,n-1);
 	//los primeros 3 argumentos siempre seran los mismos
 	update(1,0,n-1,posicionVector,valor);
