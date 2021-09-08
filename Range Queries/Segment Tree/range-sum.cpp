@@ -53,15 +53,19 @@ int sum(int node, int izq, int der, int l, int r){ // O(log N)
 
 
 int main(int argc, char *argv[]) {
-	
+	// n: cantidad de elementos a leer por entrada
 	cin>>n;
-	tree.resize(2*n,0);
+	
+	// Como maximo el segment tree ocupa 4*n posiciones en el vector
+	tree.resize(4*n,0);
 	arr.resize(n,0);
+	
+	// Se debe inicializar arr[] con los valores de la entrada, y luego llamar a build()
 	build(1,0,n-1);
-	//los primeros 3 argumentos siempre seran los mismos
+	
+	// los primeros 3 argumentos siempre seran los mismos
 	update(1,0,n-1,posicionVector,valor);
 	cout<<sum(1,0,n-1,rangoIzq,rangoDer)<<endl; 
 	
 	return 0;
 }
-
