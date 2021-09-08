@@ -1,9 +1,8 @@
 
 int n; //tamaño del vector
-vector<int>bit; //array con indexacion 1.
+vector<int>bit; //arbol - array con indexacion 1.
 
 
-//armar arbol
 // agrega 'val' al indice 'i'
 void update(int i, int val){
 	for(; i<=n ; i+= i&-i){
@@ -16,7 +15,6 @@ int sum(int i){
 	for(; i>0; i -= i&-i){
 		ans+= bit[i];
 	}
-	
 	return ans;
 }
 
@@ -26,7 +24,8 @@ int main(int argc, char *argv[]) {
 	cin>>n;
 	bit.resize(n+1);
 	
-	for(int i=1;i<=n;i++){ //init
+	// inicializacion del arbol
+	for(int i=1;i<=n;i++) {
 		int x; cin>>x;
 		update(i,x);
 	}
@@ -36,10 +35,3 @@ int main(int argc, char *argv[]) {
 	
 	return 0;
 }
-
-
-
-
-
-
-
