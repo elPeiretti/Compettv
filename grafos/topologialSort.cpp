@@ -1,7 +1,7 @@
-vector<int>lista[100000];
-vector<bool>used;
-vector<int>ans;
-bool cycle;
+vector<int>lista[100000]; // grafo como lista de adyacencia
+vector<bool>used; // vector de nodos usados
+vector<int>ans; // vector de nodos con el recorrido topologico
+bool cycle; // flag para indicar si hay un ciclo
 
 void dfs(int node){
 	
@@ -14,7 +14,7 @@ void dfs(int node){
 	
 	used[node]=0;
 	
-	forall(it,lista[node]){ // dfs
+	for(auto it: lista[node]){ // dfs
 		dfs(*it);
 	}
 		
@@ -27,7 +27,7 @@ void topologicalSort(){
 	ans.clear;
 	cycle=false;
 	
-	forn(i,n){
+	for(int i=0; i<n; i++){
 		if (used[i]!=1)
 			dfs(i);
 		if(cycle) break; //hay un ciclo, no existe orden topologico (no es DAG)
@@ -35,7 +35,3 @@ void topologicalSort(){
 	
 	reverse(ans.begin(),ans.end());
 }
-
-
-
-
