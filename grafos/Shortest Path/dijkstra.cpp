@@ -1,5 +1,5 @@
 const int INF = 1000000000;
-vector<vector<pair<int, int>>> graph; //par<peso,nodoLlegada>
+vector<vector<pair<int, int>>> graph; // listado de aristas - pair<peso,nodoLlegada>
 
 //solo sirve para calc la dist de un nodo S a todos los otros.
 //dist[k] es la distancia de S a K. dist[s]=0, dist[k]=INF
@@ -46,17 +46,15 @@ void mostrarCaminoMinimo(int nodoInic, int nodoFin, vector<int>padre){
 	
 	vector<int>aux;
 	
-	for(int v=nodoFin; v!=nodoInic; v=p[v]){
+	for(int v=nodoFin; v!=nodoInic; v=padre[v]){
 		aux.push_back(v);
 	}
 	aux.push_back(nodoInic);
 	
 	reverse(aux.begin(),aux.end());
 
-	forall(it,aux){
-		cout<<*it<<" ";
+	for(auto it : aux){
+		cout<<it<<" ";
 	}
 	
 }	
-
-
