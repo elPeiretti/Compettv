@@ -1,4 +1,4 @@
-vector<int>listaAdy[1000000];
+vector<int>listaAdy[1000000]; // grafo dado como lista de adyacencia
 //o set tambien se puede usar
 bitset<1000000>used;
 
