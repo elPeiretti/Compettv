@@ -1,7 +1,8 @@
 
 int v,e; //cant de nodos y aristas
+// grafo dado como una lista de aristas <peso, <nodoSalida, nodoLlegada>>
 vector<pair<int,pair<int,int>>> edges; //hay que sortear el vector en funcion del peso antes de llamar a kruskal()
-vector<pair<int,par>> MST
+vector<pair<int,pair<int,int>>> MST; // Arbol de cobertura minimo (dado como una lista de aristas)
 vector<long long>padre, peso;
 
 //                   UNION - FIND
@@ -12,12 +13,12 @@ void makeSet(int v){
 	peso[v]=1;
 }
 	
-ll findSet(ll nodo){
+long long findSet(long long nodo){
 	if (nodo == padre[nodo]) return nodo;
 	return padre[nodo] = findSet(padre[nodo]);
 }
 
-void uniteSet(ll a, ll b){
+void uniteSet(long long a, long long b){
 	a=findSet(a);
 	b=findSet(b);
 	if(a!=b){
@@ -30,30 +31,27 @@ void uniteSet(ll a, ll b){
 	
 // ===================================================
 
-bool formaCiclo(pair<int,par> e){
+bool formaCiclo(pair<int,pair<int,int>> e){
 	
 	return findSet(e.second.first) == findSet(e.second.second);
 	
 }
 
-ll kruskal(int v, int e){
+long long kruskal(int v, int e){
 	
-	ll ans=0;
+	long long ans=0;
 	
 	padre.resize(v); peso.resize(v);
-	forn(i,v) {makeSet(i);}
+	for(int i=0; i<v; i++) makeSet(i);
 	
-	forn(i,edges.size()){
+	for(int i=0; i<edges.size(); i++){
 		
 		if(!formaCiclo(edges[i])){
 			
 			uniteSet(edges[i].second.first,edges[i].second.second);
 			MST.push_back(edges[i]);
-			
 			ans+=edges[i].first;
-			
 		}
-		
 	}
 	
 	return ans;
